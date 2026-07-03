@@ -50,22 +50,27 @@ npm run lint
 ```
 ## 🔒 Admin security
 
-This project protects the `/admin` panel using Basic Auth via middleware.
+This project protects the `/admin` panel using Basic Auth via proxy middleware.
 
 Required environment variables:
 
 - `ADMIN_USER`
 - `ADMIN_PASS`
 
-Example local setup:
+Create a `.env` file in the project root with these values. Example:
 
 ```bash
 ADMIN_USER=admin
 ADMIN_PASS=supersecret
+```
+
+Then run:
+
+```bash
 npm run dev
 ```
 
-Without these values, access to `/admin` will fail with a server error.
+Without these values, accessing `/admin` will return `Admin credentials are not configured.`
 ## 📁 Project Structure
 
 - `app/` — main application routes and pages
