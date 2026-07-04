@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
+  metadataBase: new URL("https://lieschoft-consult.com"),
   title: "Lieschoft Consulting",
   description: "Lieschoft Consulting provides advisory, finance, operations, and digital strategy services.",
   icons: {
