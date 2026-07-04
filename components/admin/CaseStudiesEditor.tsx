@@ -78,7 +78,7 @@ export default function CaseStudiesEditor({ caseStudies }: CaseStudiesEditorProp
   return (
     <section className="rounded-4xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
       <div className="mb-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">Admin</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-700">Admin</p>
         <h2 className="mt-3 text-2xl font-semibold text-slate-950">Case studies</h2>
         <p className="mt-2 text-sm text-slate-600">
           Edit article titles, summaries, URLs, and full case study content.
@@ -142,17 +142,18 @@ export default function CaseStudiesEditor({ caseStudies }: CaseStudiesEditorProp
           <button
             type="submit"
             disabled={isSaving}
-            className="rounded-3xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+            className="rounded-3xl bg-stone-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-slate-400"
           >
             {isSaving ? "Saving…" : "Save case studies"}
           </button>
         </div>
 
         <div className="space-y-2">
-          {status ? <p className="text-sm font-medium text-emerald-600">{status}</p> : null}
+          {status ? <p className="text-sm font-medium text-stone-700">{status}</p> : null}
           {error ? <p className="text-sm font-medium text-rose-600">{error}</p> : null}
         </div>
       </form>
     </section>
   );
 }
+

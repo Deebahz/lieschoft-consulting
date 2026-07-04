@@ -1,4 +1,4 @@
-﻿import Container from "@/components/ui/Container";
+import Container from "@/components/ui/Container";
 import { getSiteData } from "@/lib/siteData";
 
 export default function TrustedBy() {
@@ -8,7 +8,7 @@ export default function TrustedBy() {
     <section className="border-t border-slate-200/70 bg-white py-16">
       <Container>
         <div className="flex flex-col items-center gap-8 text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-600">{trustedBy.heading}</p>
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-stone-700">{trustedBy.heading}</p>
           <p className="max-w-2xl text-xl font-semibold text-slate-900 sm:text-2xl">{trustedBy.subtitle}</p>
         </div>
 
@@ -26,3 +26,4 @@ export default function TrustedBy() {
     </section>
   );
 }
+

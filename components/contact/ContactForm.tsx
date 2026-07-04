@@ -77,14 +77,14 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
-          {status ? <p className="text-sm font-medium text-emerald-600">{status}</p> : null}
+          {status ? <p className="text-sm font-medium text-stone-700">{status}</p> : null}
           {error ? <p className="text-sm font-medium text-rose-600">{error}</p> : null}
         </div>
 
         <button
           type="submit"
           disabled={isSending}
-          className="inline-flex items-center justify-center rounded-3xl bg-emerald-600 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+          className="inline-flex items-center justify-center rounded-3xl bg-stone-700 px-7 py-4 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-slate-400"
         >
           {isSending ? "Sending…" : "Send message"}
         </button>
@@ -92,3 +92,4 @@ export default function ContactForm() {
     </form>
   );
 }
+

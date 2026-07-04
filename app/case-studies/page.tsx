@@ -21,7 +21,7 @@ export default function CaseStudiesPage() {
             {caseStudies.map((study) => (
               <Link key={study.slug} href={`/case-studies/${study.slug}`} className="group">
                 <Card className="h-full">
-                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600">
+                  <h3 className="text-xl font-semibold text-slate-900 group-hover:text-stone-700">
                     {study.title}
                   </h3>
                   <p className="mt-4 text-sm leading-6 text-slate-600">{study.summary}</p>
@@ -34,3 +34,4 @@ export default function CaseStudiesPage() {
     </main>
   );
 }
+

@@ -1,4 +1,4 @@
-﻿import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getSiteData } from "@/lib/siteData";
@@ -20,7 +20,7 @@ export default function About() {
             <div className="grid gap-4 sm:grid-cols-2">
               {about.features.map((feature) => (
                 <div key={feature.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-600">{feature.title}</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-700">{feature.title}</p>
                   <p className="mt-4 text-slate-700">{feature.description}</p>
                 </div>
               ))}
@@ -29,9 +29,9 @@ export default function About() {
             <Button href="/contact">Start the conversation</Button>
           </div>
 
-          <div className="rounded-[2rem] bg-emerald-50 p-10 shadow-sm">
-            <div className="rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
-              <p className="text-sm uppercase tracking-[0.3em] text-emerald-600">Why clients choose us</p>
+          <div className="rounded-[2rem] bg-stone-50 p-10 shadow-sm">
+            <div className="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+              <p className="text-sm uppercase tracking-[0.3em] text-stone-700">Why clients choose us</p>
               <ul className="mt-8 space-y-6 text-slate-700">
                 {about.reasons.map((reason) => (
                   <li key={reason}>• {reason}</li>
@@ -44,3 +44,4 @@ export default function About() {
     </section>
   );
 }
+

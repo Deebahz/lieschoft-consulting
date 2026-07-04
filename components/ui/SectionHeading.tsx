@@ -12,7 +12,7 @@ export default function SectionHeading({
   return (
     <div className="max-w-2xl">
       {eyebrow ? (
-        <p className="text-sm font-medium uppercase tracking-[0.28em] text-emerald-600">
+        <p className="text-sm font-medium uppercase tracking-[0.28em] text-stone-700">
           {eyebrow}
         </p>
       ) : null}
@@ -29,3 +29,4 @@ export default function SectionHeading({
     </div>
   );
 }
+

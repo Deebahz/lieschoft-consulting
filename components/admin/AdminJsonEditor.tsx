@@ -61,19 +61,19 @@ export default function AdminJsonEditor({ initialJson }: AdminJsonEditorProps) {
           id="site-json"
           value={siteJson}
           onChange={(event) => setSiteJson(event.target.value)}
-          className="min-h-[520px] w-full rounded-3xl border border-slate-300 bg-white p-4 font-mono text-sm text-slate-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+          className="min-h-[520px] w-full rounded-3xl border border-slate-300 bg-white p-4 font-mono text-sm text-slate-900 shadow-sm focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500/20"
         />
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2">
-          {status ? <p className="text-sm font-medium text-emerald-600">{status}</p> : null}
+          {status ? <p className="text-sm font-medium text-stone-700">{status}</p> : null}
           {error ? <p className="text-sm font-medium text-rose-600">{error}</p> : null}
         </div>
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-400"
+          className="inline-flex items-center justify-center rounded-xl bg-stone-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-slate-400"
         >
           {isSaving ? "Saving…" : "Save site content"}
         </button>
@@ -81,3 +81,4 @@ export default function AdminJsonEditor({ initialJson }: AdminJsonEditorProps) {
     </form>
   );
 }
+

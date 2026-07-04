@@ -1,5 +1,4 @@
-﻿import Container from "../ui/Container";
-import Button from "../ui/Button";
+import Container from "../ui/Container";
 import { getSiteData } from "@/lib/siteData";
 
 export default function Hero() {
@@ -8,17 +7,17 @@ export default function Hero() {
   const [beforeHighlight, afterHighlight] = hero.title.split(hero.highlight);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-emerald-50 py-24 lg:py-36">
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-stone-50 py-24 lg:py-36">
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div>
-            <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700">
+            <span className="rounded-full bg-stone-100 px-4 py-2 text-sm font-medium text-stone-700">
               {hero.badge}
             </span>
 
             <h1 className="mt-8 text-5xl font-bold leading-tight text-slate-900 lg:text-7xl">
               {beforeHighlight}
-              <span className="text-emerald-600">{hero.highlight}</span>
+              <span className="text-stone-700">{hero.highlight}</span>
               {afterHighlight}
             </h1>
 
@@ -27,10 +26,9 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button href={hero.primaryCta.href}>{hero.primaryCta.label}</Button>
               <a
                 href={hero.secondaryLink.href}
-                className="rounded-xl border border-slate-300 px-6 py-3 font-medium text-slate-800 transition hover:border-emerald-600 hover:text-emerald-600"
+                className="rounded-xl border border-slate-300 px-6 py-3 font-medium text-slate-800 transition hover:border-stone-700 hover:text-stone-700"
               >
                 {hero.secondaryLink.label}
               </a>
@@ -43,22 +41,22 @@ export default function Hero() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="rounded-2xl bg-slate-50 p-6">
-                  <p className="text-3xl font-bold text-emerald-600">250+</p>
+                  <p className="text-3xl font-bold text-stone-700">250+</p>
                   <p className="mt-2 text-sm text-slate-500">Projects Delivered</p>
                 </div>
 
                 <div className="rounded-2xl bg-slate-50 p-6">
-                  <p className="text-3xl font-bold text-emerald-600">95%</p>
+                  <p className="text-3xl font-bold text-stone-700">95%</p>
                   <p className="mt-2 text-sm text-slate-500">Client Satisfaction</p>
                 </div>
 
                 <div className="rounded-2xl bg-slate-50 p-6">
-                  <p className="text-3xl font-bold text-emerald-600">12+</p>
+                  <p className="text-3xl font-bold text-stone-700">12+</p>
                   <p className="mt-2 text-sm text-slate-500">Industries Served</p>
                 </div>
 
                 <div className="rounded-2xl bg-slate-50 p-6">
-                  <p className="text-3xl font-bold text-emerald-600">24/7</p>
+                  <p className="text-3xl font-bold text-stone-700">24/7</p>
                   <p className="mt-2 text-sm text-slate-500">Strategic Support</p>
                 </div>
               </div>
@@ -69,3 +67,4 @@ export default function Hero() {
     </section>
   );
 }
+

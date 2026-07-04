@@ -44,8 +44,8 @@ export default function Footer() {
             <h3 className="mb-5 font-semibold text-white">Contact</h3>
 
             <p>Nairobi, Kenya</p>
-            <p>info@lieschoft.com</p>
-            <p>+254 XXX XXX XXX</p>
+            <p>ceo@lieschoftconsulting.com</p>
+            <p>+254796039507</p>
 
           </div>
 

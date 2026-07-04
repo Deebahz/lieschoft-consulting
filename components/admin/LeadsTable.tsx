@@ -8,7 +8,7 @@ export default function LeadsTable({ leads }: LeadsTableProps) {
   return (
     <section className="rounded-4xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">Admin</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-700">Admin</p>
         <h2 className="mt-3 text-2xl font-semibold text-slate-950">Contact leads</h2>
         <p className="mt-2 text-sm text-slate-600">
           See who submitted a contact request through the website.
@@ -46,3 +46,4 @@ export default function LeadsTable({ leads }: LeadsTableProps) {
     </section>
   );
 }
+

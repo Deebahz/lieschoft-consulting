@@ -150,7 +150,7 @@ Animations should feel smooth, polished, and minimal.
 
 #### Primary
 
-- Emerald background
+- Brown/beige background
 - White text
 - Rounded corners
 - Slight scale on hover

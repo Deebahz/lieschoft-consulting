@@ -15,7 +15,7 @@ export default function AdminPage() {
         <div className="mx-auto max-w-6xl space-y-10">
           <div className="rounded-4xl border border-slate-200 bg-white p-10 shadow-xl">
             <div className="space-y-3">
-              <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-600">Admin</p>
+              <p className="text-sm font-medium uppercase tracking-[0.3em] text-stone-700">Admin</p>
               <h1 className="text-4xl font-bold tracking-tight text-slate-950">Edit site content</h1>
               <p className="text-slate-600">
                 Manage open positions and case studies through friendly forms, and see inbound contact requests.
@@ -36,3 +36,4 @@ export default function AdminPage() {
     </main>
   );
 }
+

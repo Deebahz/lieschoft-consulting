@@ -32,7 +32,7 @@ export default function CareersPage() {
                     </div>
                     <a
                       href={mailto}
-                      className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                      className="inline-flex items-center justify-center rounded-full bg-stone-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-stone-800"
                     >
                       Apply via email
                     </a>
@@ -65,3 +65,4 @@ export default function CareersPage() {
     </main>
   );
 }
+

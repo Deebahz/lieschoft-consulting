@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import Container from "../ui/Container";
 import Logo from "../ui/Logo";
@@ -29,24 +29,14 @@ export default function Navbar() {
                 href={item.href}
                 className={`transition ${
                   pathname === item.href
-                    ? "font-semibold text-emerald-600"
-                    : "text-slate-700 hover:text-emerald-600"
+                    ? "font-semibold text-stone-700"
+                    : "text-slate-700 hover:text-stone-700"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
-
-          <div className="hidden lg:block">
-            <Link
-              href="/contact"
-              className="flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 font-medium text-white transition hover:bg-emerald-700"
-            >
-              Book Consultation
-              <ArrowRight size={18} />
-            </Link>
-          </div>
 
           <button
             className="lg:hidden"
@@ -75,13 +65,6 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-
-              <Link
-                href="/contact"
-                className="mt-4 rounded-xl bg-emerald-600 py-3 text-center font-medium text-white"
-              >
-                Book Consultation
-              </Link>
 
             </div>
 

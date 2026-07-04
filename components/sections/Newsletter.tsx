@@ -20,11 +20,11 @@ export default function Newsletter() {
               id="newsletter-email"
               type="email"
               placeholder="Enter your email"
-              className="min-w-0 rounded-3xl border border-slate-700 bg-slate-950/90 px-5 py-4 text-base text-white placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
+              className="min-w-0 rounded-3xl border border-slate-700 bg-slate-950/90 px-5 py-4 text-base text-white placeholder:text-slate-500 focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500/30"
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-3xl bg-emerald-600 px-7 py-4 text-base font-semibold text-white transition hover:bg-emerald-500"
+              className="inline-flex items-center justify-center rounded-3xl bg-stone-700 px-7 py-4 text-base font-semibold text-white transition hover:bg-stone-500"
             >
               Subscribe
             </button>
@@ -34,3 +34,4 @@ export default function Newsletter() {
     </section>
     );
 }
+

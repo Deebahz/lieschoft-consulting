@@ -1,4 +1,4 @@
-﻿import { Briefcase, ShieldCheck, Calculator, BarChart3 } from "lucide-react";
+import { Briefcase, ShieldCheck, Calculator, BarChart3 } from "lucide-react";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
@@ -28,7 +28,7 @@ export default function Services() {
             const Icon = iconMap[service.title] || Briefcase;
             return (
               <Card key={service.title}>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-stone-100 text-stone-700">
                   <Icon size={20} />
                 </div>
                 <h3 className="mt-8 text-xl font-semibold text-slate-900">{service.title}</h3>
@@ -41,3 +41,4 @@ export default function Services() {
     </section>
   );
 }
+

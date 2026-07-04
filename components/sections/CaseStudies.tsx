@@ -20,7 +20,7 @@ export default function CaseStudies() {
           {caseStudies.map((item) => (
             <Link key={item.slug} href={`/case-studies/${item.slug}`} className="group">
               <Card className="h-full">
-                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-600">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-stone-700">{item.title}</h3>
                 <p className="mt-4 text-sm leading-6 text-slate-600">{item.summary}</p>
               </Card>
             </Link>
@@ -30,3 +30,4 @@ export default function CaseStudies() {
     </section>
   );
 }
+
