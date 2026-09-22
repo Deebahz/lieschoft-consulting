@@ -33,8 +33,8 @@ export default function Footer() {
             <h3 className="mb-5 font-semibold text-white">Services</h3>
 
             <div className="space-y-3">
-              <p>Financial Advisory</p>
-              <p>Audit & Assurance</p>
+              <p>Software Development</p>
+              <p>Cloud Deployment</p>
               <p>Tax Consulting</p>
               <p>Investment Analysis</p>
             </div>
@@ -45,7 +45,7 @@ export default function Footer() {
 
             <p>Nairobi, Kenya</p>
             <p>ceo@lieschoftconsulting.com</p>
-            <p>+254796039507</p>
+            <p>+25447039507</p>
 
           </div>
 
