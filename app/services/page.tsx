@@ -4,12 +4,8 @@ import Card from "@/components/ui/Card";
 
 const services = [
   {
-    title: "Financial Advisory",
-    summary: "Cashflow planning, capital strategy, and growth enablement.",
-  },
-  {
-    title: "Audit & Assurance",
-    summary: "Governance, compliance, and operational control services.",
+    title: "Software Development",
+    summary: "We offer software development services for all types of softwares",
   },
   {
     title: "Tax Consulting",
@@ -18,6 +14,10 @@ const services = [
   {
     title: "Technology Strategy",
     summary: "Analytics, systems, and digital transformation advisory for modern teams.",
+  },
+  {
+    title: "Cloud Deployment",
+    summary: "Cloud migration and development for businesses",
   },
 ];
 
