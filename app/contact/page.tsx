@@ -19,8 +19,8 @@ export default function ContactPage() {
                 Reach out to schedule a consultation or ask about our services. We provide responsive guidance and a tailored approach for every business.
               </p>
               <div className="space-y-4 text-slate-700">
-                <p>info@lieschoft.com</p>
-                <p>+254 XXX XXX XXX</p>
+                <p>info@lieschoftconsulting.com</p>
+                <p>+254 470 39507 </p>
                 <p>Nairobi, Kenya</p>
               </div>
             </div>
