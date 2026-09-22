@@ -23,8 +23,8 @@ export default function AboutPage() {
             <div className="space-y-6 rounded-3xl bg-white p-10 shadow-sm">
               <h2 className="text-2xl font-semibold text-slate-900">What we do</h2>
               <ul className="space-y-4 text-slate-600 leading-7">
-                <li>• Financial advisory and performance optimization</li>
-                <li>• Audit, compliance, and risk management</li>
+                <li>•Software Development</li>
+                <li>• Cloud Deployment</li>
                 <li>• Tax planning and structuring</li>
                 <li>• Technology strategy and analytics enablement</li>
               </ul>
