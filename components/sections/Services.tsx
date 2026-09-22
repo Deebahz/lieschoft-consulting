@@ -5,8 +5,8 @@ import Container from "@/components/ui/Container";
 import { getSiteData } from "@/lib/siteData";
 
 const iconMap: Record<string, typeof Briefcase> = {
-  "Financial Advisory": Briefcase,
-  "Audit & Assurance": ShieldCheck,
+  "Software Development": Briefcase,
+  "Cloud Deployment": ShieldCheck,
   "Tax Consulting": Calculator,
   "Technology Strategy": BarChart3,
 };
