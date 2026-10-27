@@ -31,7 +31,7 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
   }
 
   function addItem() {
-    setItems((current) => [...current, { title: "", excerpt: "" }]);
+    setItems((current) => [...current, { title: "", slug: "", excerpt: "", content: "" }]);
   }
 
   function removeItem(index: number) {
