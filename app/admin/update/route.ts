@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { isInsightsStorageConfigured, saveInsights } from "@/lib/insightsData";
-import { getSiteData, saveSiteData } from "@/lib/siteData";
+import { getSiteData, saveSiteData, type InsightData } from "@/lib/siteData";
 
 export async function POST(request: NextRequest) {
   let body: { section?: unknown; value?: unknown };
@@ -55,31 +55,6 @@ export async function POST(request: NextRequest) {
       responsibilities: string[];
       requirements: string[];
     }>;
-  } else if (body.section === "caseStudies") {
-    if (!Array.isArray(body.value)) {
-      return NextResponse.json({ error: "caseStudies must be an array." }, { status: 400 });
-    }
-
-    const caseStudies = body.value;
-    for (const item of caseStudies) {
-      if (
-        typeof item !== "object" ||
-        item === null ||
-        typeof (item as any).title !== "string" ||
-        typeof (item as any).summary !== "string" ||
-        typeof (item as any).slug !== "string" ||
-        typeof (item as any).content !== "string"
-      ) {
-        return NextResponse.json({ error: "Each case study must include title, summary, slug, and content." }, { status: 400 });
-      }
-    }
-
-    siteData.caseStudies = caseStudies as Array<{
-      title: string;
-      summary: string;
-      slug: string;
-      content: string;
-    }>;
   } else if (body.section === "insights") {
     if (!Array.isArray(body.value)) {
       return NextResponse.json({ error: "insights must be an array." }, { status: 400 });
@@ -89,24 +64,35 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "You can save up to 100 insights." }, { status: 400 });
     }
 
-    const insights = [];
+    const insights: InsightData[] = [];
+    const slugs = new Set<string>();
     for (const item of body.value) {
       if (
         typeof item !== "object" ||
         item === null ||
         typeof (item as { title?: unknown }).title !== "string" ||
-        typeof (item as { excerpt?: unknown }).excerpt !== "string"
+        typeof (item as { slug?: unknown }).slug !== "string" ||
+        typeof (item as { excerpt?: unknown }).excerpt !== "string" ||
+        typeof (item as { content?: unknown }).content !== "string"
       ) {
-        return NextResponse.json({ error: "Each insight must include a title and excerpt." }, { status: 400 });
+        return NextResponse.json({ error: "Each article must include a title, slug, excerpt, and content." }, { status: 400 });
       }
 
       const title = (item as { title: string }).title.trim();
+      const slug = (item as { slug: string }).slug.trim();
       const excerpt = (item as { excerpt: string }).excerpt.trim();
-      if (!title || !excerpt || title.length > 160 || excerpt.length > 1000) {
-        return NextResponse.json({ error: "Insight titles must be 1-160 characters and excerpts 1-1000 characters." }, { status: 400 });
+      const content = (item as { content: string }).content.trim();
+      if (
+        !title || title.length > 160 ||
+        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || slug.length > 120 || slugs.has(slug) ||
+        !excerpt || excerpt.length > 1000 ||
+        !content || content.length > 20000
+      ) {
+        return NextResponse.json({ error: "Articles need a unique URL slug, a title up to 160 characters, an excerpt up to 1000 characters, and content up to 20000 characters." }, { status: 400 });
       }
 
-      insights.push({ title, excerpt });
+      slugs.add(slug);
+      insights.push({ title, slug, excerpt, content });
     }
 
     siteData.insights = insights;
@@ -128,6 +114,7 @@ export async function POST(request: NextRequest) {
   if (body.section === "insights") {
     revalidatePath("/");
     revalidatePath("/insights");
+    revalidatePath("/insights/[slug]", "page");
   }
 
   return NextResponse.json({ message: "Section updated successfully." });

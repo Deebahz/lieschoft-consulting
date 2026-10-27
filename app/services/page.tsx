@@ -8,8 +8,8 @@ const services = [
     summary: "We offer software development services for all types of softwares",
   },
   {
-    title: "Tax Consulting",
-    summary: "Tax planning, structuring, and advisory services for cross-border business.",
+    title: "Investment Consulting",
+    summary: "Investment planning, structuring, and advisory services for cross-border business.",
   },
   {
     title: "Technology Strategy",

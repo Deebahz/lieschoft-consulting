@@ -45,13 +45,6 @@ export interface ProcessStep {
   description: string;
 }
 
-export interface CaseStudyData {
-  title: string;
-  summary: string;
-  slug: string;
-  content: string;
-}
-
 export interface OpenPosition {
   title: string;
   responsibilities: string[];
@@ -66,7 +59,9 @@ export interface TestimonialData {
 
 export interface InsightData {
   title: string;
+  slug: string;
   excerpt: string;
+  content: string;
 }
 
 export interface CTAData {
@@ -110,7 +105,6 @@ export interface SiteData {
   openPositions: OpenPosition[];
   industries: IndustryData[];
   process: ProcessStep[];
-  caseStudies: CaseStudyData[];
   testimonials: TestimonialData[];
   insights: InsightData[];
   cta: CTAData;
@@ -120,7 +114,6 @@ export interface SiteData {
   pages: {
     about: PageInfoData;
     careers: PageInfoData;
-    caseStudies: PageInfoData;
     contact: PageInfoData;
     industries: PageInfoData;
     insights: PageInfoData;

@@ -11,37 +11,74 @@ export function isInsightsStorageConfigured() {
   );
 }
 
-function isInsightData(value: unknown): value is InsightData[] {
-  return (
-    Array.isArray(value) &&
-    value.every(
-      (item) =>
-        typeof item === "object" &&
-        item !== null &&
-        typeof item.title === "string" &&
-        typeof item.excerpt === "string"
-    )
-  );
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function normalizeInsights(value: unknown): InsightData[] | null {
+  if (!Array.isArray(value)) {
+    return null;
+  }
+
+  const insights: InsightData[] = [];
+  const usedSlugs = new Set<string>();
+
+  for (const [index, item] of value.entries()) {
+    if (
+      typeof item !== "object" ||
+      item === null ||
+      typeof item.title !== "string" ||
+      typeof item.excerpt !== "string"
+    ) {
+      return null;
+    }
+
+    const title = item.title.trim();
+    const excerpt = item.excerpt.trim();
+    const requestedSlug = typeof item.slug === "string" ? item.slug.trim() : "";
+    const baseSlug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(requestedSlug)
+      ? requestedSlug
+      : slugify(title) || `insight-${index + 1}`;
+    let slug = baseSlug;
+    let suffix = 2;
+    while (usedSlugs.has(slug)) {
+      slug = `${baseSlug}-${suffix}`;
+      suffix += 1;
+    }
+
+    usedSlugs.add(slug);
+    insights.push({
+      title,
+      slug,
+      excerpt,
+      content: typeof item.content === "string" && item.content.trim() ? item.content : excerpt,
+    });
+  }
+
+  return insights;
 }
 
 export async function getInsights(): Promise<InsightData[]> {
   await connection();
 
   if (!isInsightsStorageConfigured()) {
-    return getSiteData().insights;
+    return normalizeInsights(getSiteData().insights) ?? [];
   }
 
   const blob = await get(insightsPath, { access: "private", useCache: false });
   if (!blob || blob.statusCode !== 200 || !blob.stream) {
-    return getSiteData().insights;
+    return normalizeInsights(getSiteData().insights) ?? [];
   }
 
-  const storedInsights: unknown = await new Response(blob.stream).json();
-  if (!isInsightData(storedInsights)) {
+  const insights = normalizeInsights(await new Response(blob.stream).json());
+  if (!insights) {
     throw new Error("Stored insights data is invalid.");
   }
 
-  return storedInsights;
+  return insights;
 }
 
 export async function saveInsights(insights: InsightData[]) {

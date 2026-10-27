@@ -155,26 +155,6 @@
       "description": "We track progress, refine the strategy, and hand over sustainable operating discipline."
     }
   ],
-  "caseStudies": [
-    {
-      "title": "Financial operations transformation",
-      "summary": "Improved forecasting accuracy and shortened reporting cycles for a regional bank.",
-      "slug": "financial-operations-transformation",
-      "content": "Lieschoft Consulting partnered with a regional bank to overhaul performance reporting and forecasting processes.\n\nThe project included redesigning month-end close procedures, automating recurring reports, and establishing a disciplined operating rhythm for stakeholders.\n\nThe result was faster decision-making, more accurate cashflow visibility, and a leaner finance function that could respond to growth pressures."
-    },
-    {
-      "title": "Scaling a technology advisory practice",
-      "summary": "Built repeatable delivery models and a growth roadmap for a fast-growing consultancy.",
-      "slug": "scaling-a-technology-advisory-practice",
-      "content": "We helped a growing technology advisory business develop scalable delivery frameworks, pricing models, and client-facing operations.\n\nOur work included defining standardized service offerings, building templates for repeatable engagements, and aligning the leadership team around growth priorities.\n\nThis approach improved margins, shortened sales cycles, and created a clearer foundation for expansion."
-    },
-    {
-      "title": "Modernizing performance reporting",
-      "summary": "Created actionable dashboards and standard operating metrics for leadership.",
-      "slug": "modernizing-performance-reporting",
-      "content": "Our team redesigned reporting for a professional services firm, moving leadership from static spreadsheets to dynamic dashboards.\n\nWe focused on key operating metrics, decision-ready visuals, and a governance cadence that kept the team accountable.\n\nThe new reporting model improved transparency, reduced manual rework, and helped executives act faster on performance trends."
-    }
-  ],
   "testimonials": [
     {
       "quote": "Lieschoft helped us simplify our financial reporting and build a growth plan that the executive team trusted.",
@@ -195,15 +175,21 @@
   "insights": [
     {
       "title": "Align finance and operations for faster growth",
-      "excerpt": "Best practices for creating transparent metrics, streamlined planning, and stronger execution."
+      "slug": "align-finance-and-operations-for-faster-growth",
+      "excerpt": "Best practices for creating transparent metrics, streamlined planning, and stronger execution.",
+      "content": "Finance and operations teams make better decisions when they work from the same view of performance. Start by agreeing on a small set of measures that connect financial outcomes with operational activity.\n\nGive each measure a clear owner, a consistent definition, and a regular review cadence. This makes changes in cost, capacity, and revenue easier to explain and act on.\n\nThe goal is not more reporting. It is a shared operating rhythm that helps teams identify trade-offs early, make accountable decisions, and adjust plans as conditions change."
     },
     {
       "title": "Preparing your business for strategic investment",
-      "excerpt": "A framework for building credibility with investors through controls and reporting."
+      "slug": "preparing-your-business-for-strategic-investment",
+      "excerpt": "A framework for building credibility with investors through controls and reporting.",
+      "content": "Investment readiness starts with a clear account of how the business creates value and where capital will make a difference. Leadership should be able to explain the strategy, the assumptions behind it, and the milestones that will show progress.\n\nReliable financial reporting and well-defined controls help investors understand performance and risk. Prepare consistent historical results, realistic forecasts, and documentation for the processes that produce the numbers.\n\nA focused readiness plan makes diligence more efficient and helps the team keep its attention on building the business, not assembling information at the last minute."
     },
     {
       "title": "Modernizing legacy reporting with data-driven insights",
-      "excerpt": "A practical guide to moving from manual spreadsheets to actionable dashboards."
+      "slug": "modernizing-legacy-reporting-with-data-driven-insights",
+      "excerpt": "A practical guide to moving from manual spreadsheets to actionable dashboards.",
+      "content": "Modern reporting begins with the decisions leaders need to make, not with a choice of dashboard software. Identify the questions that currently take too long to answer and the measures that would make those decisions clearer.\n\nNext, establish trusted data definitions and reduce repetitive manual consolidation. Automating an inconsistent process only produces inconsistent information faster, so ownership and quality checks matter as much as the tools.\n\nIntroduce dashboards in stages, review whether they change decisions, and retire reports that no longer serve a purpose. The result should be a simpler reporting routine with timely, actionable information."
     }
   ],
   "cta": {
@@ -248,10 +234,6 @@
     "careers": {
       "title": "Careers at Lieschoft Consulting",
       "description": "Explore open roles at a growing firm built for collaboration, development, and client impact."
-    },
-    "caseStudies": {
-      "title": "Case Studies",
-      "description": "Read examples of client engagements where we helped improve reporting, profitability, and growth."
     },
     "contact": {
       "title": "Contact Lieschoft Consulting",

@@ -42,11 +42,6 @@ export interface ProcessStep {
   description: string;
 }
 
-export interface CaseStudyData {
-  title: string;
-  summary: string;
-}
-
 export interface TestimonialData {
   quote: string;
   name: string;
@@ -55,7 +50,9 @@ export interface TestimonialData {
 
 export interface InsightData {
   title: string;
+  slug: string;
   excerpt: string;
+  content: string;
 }
 
 export interface CTAData {
@@ -98,7 +95,6 @@ export interface SiteData {
   services: ServiceData[];
   industries: IndustryData[];
   process: ProcessStep[];
-  caseStudies: CaseStudyData[];
   testimonials: TestimonialData[];
   insights: InsightData[];
   cta: CTAData;
@@ -108,7 +104,6 @@ export interface SiteData {
   pages: {
     about: PageInfoData;
     careers: PageInfoData;
-    caseStudies: PageInfoData;
     contact: PageInfoData;
     industries: PageInfoData;
     insights: PageInfoData;
@@ -238,23 +233,6 @@ export const defaultSiteData: SiteData = {
         "We track progress, refine the strategy, and hand over sustainable operating discipline.",
     },
   ],
-  caseStudies: [
-    {
-      title: "Financial operations transformation",
-      summary:
-        "Improved forecasting accuracy and shortened reporting cycles for a regional bank.",
-    },
-    {
-      title: "Scaling a technology advisory practice",
-      summary:
-        "Built repeatable delivery models and a growth roadmap for a fast-growing consultancy.",
-    },
-    {
-      title: "Modernizing performance reporting",
-      summary:
-        "Created actionable dashboards and standard operating metrics for leadership.",
-    },
-  ],
   testimonials: [
     {
       quote:
@@ -278,18 +256,27 @@ export const defaultSiteData: SiteData = {
   insights: [
     {
       title: "Align finance and operations for faster growth",
+      slug: "align-finance-and-operations-for-faster-growth",
       excerpt:
         "Best practices for creating transparent metrics, streamlined planning, and stronger execution.",
+      content:
+        "Finance and operations teams make better decisions when they work from the same view of performance. Start by agreeing on a small set of measures that connect financial outcomes with operational activity.\n\nGive each measure a clear owner, a consistent definition, and a regular review cadence. This makes changes in cost, capacity, and revenue easier to explain and act on.\n\nThe goal is not more reporting. It is a shared operating rhythm that helps teams identify trade-offs early, make accountable decisions, and adjust plans as conditions change.",
     },
     {
       title: "Preparing your business for strategic investment",
+      slug: "preparing-your-business-for-strategic-investment",
       excerpt:
         "A framework for building credibility with investors through controls and reporting.",
+      content:
+        "Investment readiness starts with a clear account of how the business creates value and where capital will make a difference. Leadership should be able to explain the strategy, the assumptions behind it, and the milestones that will show progress.\n\nReliable financial reporting and well-defined controls help investors understand performance and risk. Prepare consistent historical results, realistic forecasts, and documentation for the processes that produce the numbers.\n\nA focused readiness plan makes diligence more efficient and helps the team keep its attention on building the business, not assembling information at the last minute.",
     },
     {
       title: "Modernizing legacy reporting with data-driven insights",
+      slug: "modernizing-legacy-reporting-with-data-driven-insights",
       excerpt:
         "A practical guide to moving from manual spreadsheets to actionable dashboards.",
+      content:
+        "Modern reporting begins with the decisions leaders need to make, not with a choice of dashboard software. Identify the questions that currently take too long to answer and the measures that would make those decisions clearer.\n\nNext, establish trusted data definitions and reduce repetitive manual consolidation. Automating an inconsistent process only produces inconsistent information faster, so ownership and quality checks matter as much as the tools.\n\nIntroduce dashboards in stages, review whether they change decisions, and retire reports that no longer serve a purpose. The result should be a simpler reporting routine with timely, actionable information.",
     },
   ],
   cta: {
@@ -339,11 +326,6 @@ export const defaultSiteData: SiteData = {
       title: "Careers at Lieschoft Consulting",
       description:
         "Explore open roles at a growing firm built for collaboration, development, and client impact.",
-    },
-    caseStudies: {
-      title: "Case Studies",
-      description:
-        "Read examples of client engagements where we helped improve reporting, profitability, and growth.",
     },
     contact: {
       title: "Contact Lieschoft Consulting",

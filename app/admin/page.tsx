@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-import CaseStudiesEditor from "@/components/admin/CaseStudiesEditor";
 import InsightsEditor from "@/components/admin/InsightsEditor";
 import LeadsTable from "@/components/admin/LeadsTable";
 import OpenPositionsEditor from "@/components/admin/OpenPositionsEditor";
@@ -21,7 +20,7 @@ export default async function AdminPage() {
               <p className="text-sm font-medium uppercase tracking-[0.3em] text-stone-700">Admin</p>
               <h1 className="text-4xl font-bold tracking-tight text-slate-950">Edit site content</h1>
               <p className="text-slate-600">
-                Manage open positions and case studies through friendly forms, and see inbound contact requests.
+                Manage open positions and insights articles, and see inbound contact requests.
               </p>
             </div>
           </div>
@@ -29,7 +28,6 @@ export default async function AdminPage() {
           <div className="grid gap-10 xl:grid-cols-[1.2fr_0.8fr]">
             <div className="space-y-10">
               <OpenPositionsEditor positions={siteData.openPositions} />
-              <CaseStudiesEditor caseStudies={siteData.caseStudies} />
               <InsightsEditor insights={insights} />
             </div>
 

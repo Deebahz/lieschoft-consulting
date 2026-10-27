@@ -8,6 +8,13 @@ interface InsightsEditorProps {
   insights: InsightData[];
 }
 
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function InsightsEditor({ insights }: InsightsEditorProps) {
   const [items, setItems] = useState<InsightData[]>(insights);
   const [status, setStatus] = useState<string | null>(null);
@@ -38,11 +45,18 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
 
     const updatedInsights = items.map((item) => ({
       title: item.title.trim(),
+      slug: item.slug.trim() || slugify(item.title),
       excerpt: item.excerpt.trim(),
+      content: item.content.trim(),
     }));
 
-    if (updatedInsights.some((item) => !item.title || !item.excerpt)) {
-      setError("Each insight needs a title and excerpt.");
+    const slugs = updatedInsights.map((item) => item.slug);
+    if (
+      updatedInsights.some((item) => !item.title || !item.slug || !item.excerpt || !item.content) ||
+      slugs.some((slug) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) ||
+      new Set(slugs).size !== slugs.length
+    ) {
+      setError("Each article needs a title, unique URL slug, excerpt, and full content.");
       return;
     }
 
@@ -65,7 +79,7 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
       setStatus(result?.message || "Insights saved successfully.");
       router.refresh();
     } catch {
-      setError("Unable to save insights.");
+      setError("Unable to save articles.");
     } finally {
       setIsSaving(false);
     }
@@ -77,7 +91,7 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-stone-700">Admin</p>
         <h2 className="mt-3 text-2xl font-semibold text-slate-950">Insights</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Manage the insight cards shown on the homepage and Insights page.
+          Add and edit articles shown on the homepage and Insights page.
         </p>
       </div>
 
@@ -85,7 +99,7 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
         {items.map((item, index) => (
           <div key={index} className="space-y-4 rounded-3xl border border-slate-200 bg-white p-5">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-lg font-medium text-slate-900">Insight {index + 1}</h3>
+              <h3 className="text-lg font-medium text-slate-900">Article {index + 1}</h3>
               <button
                 type="button"
                 onClick={() => removeItem(index)}
@@ -100,7 +114,15 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
               maxLength={160}
               value={item.title}
               onChange={(event) => updateItem(index, "title", event.target.value)}
-              placeholder="Insight title"
+              placeholder="Article title"
+              className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900"
+            />
+
+            <input
+              maxLength={120}
+              value={item.slug}
+              onChange={(event) => updateItem(index, "slug", event.target.value)}
+              placeholder="URL slug (optional, generated from the title)"
               className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900"
             />
 
@@ -109,9 +131,19 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
               maxLength={1000}
               value={item.excerpt}
               onChange={(event) => updateItem(index, "excerpt", event.target.value)}
-              placeholder="Short excerpt"
+              placeholder="Article excerpt"
               rows={3}
               className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900"
+            />
+
+            <textarea
+              required
+              maxLength={20000}
+              value={item.content}
+              onChange={(event) => updateItem(index, "content", event.target.value)}
+              placeholder="Full article content. Separate paragraphs with a blank line."
+              rows={10}
+              className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-900"
             />
           </div>
         ))}
@@ -122,14 +154,14 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
             onClick={addItem}
             className="rounded-3xl bg-white px-5 py-3 text-sm font-medium text-slate-900 ring-1 ring-slate-300 transition hover:bg-slate-100"
           >
-            Add insight
+            Add article
           </button>
           <button
             type="submit"
             disabled={isSaving}
             className="rounded-3xl bg-stone-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-slate-400"
           >
-            {isSaving ? "Saving…" : "Save insights"}
+            {isSaving ? "Saving…" : "Save articles"}
           </button>
         </div>
 
