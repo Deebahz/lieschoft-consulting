@@ -1,10 +1,10 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
-import { getSiteData } from "@/lib/siteData";
+import { getInsights } from "@/lib/insightsData";
 
-export default function InsightsPage() {
-  const { insights } = getSiteData();
+export default async function InsightsPage() {
+  const insights = await getInsights();
 
   return (
     <main>

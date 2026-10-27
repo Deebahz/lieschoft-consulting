@@ -25,7 +25,7 @@ export default function AboutPage() {
               <ul className="space-y-4 text-slate-600 leading-7">
                 <li>•Software Development</li>
                 <li>• Cloud Deployment</li>
-                <li>• Tax planning and structuring</li>
+                <li>•  planning and structuring</li>
                 <li>• Technology strategy and analytics enablement</li>
               </ul>
             </div>

@@ -1,10 +1,10 @@
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { getSiteData } from "@/lib/siteData";
+import { getInsights } from "@/lib/insightsData";
 
-export default function Insights() {
-  const { insights } = getSiteData();
+export default async function Insights() {
+  const insights = await getInsights();
 
   return (
     <section className="py-24">

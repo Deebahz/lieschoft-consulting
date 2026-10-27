@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="space-y-3">
               <p>Software Development</p>
               <p>Cloud Deployment</p>
-              <p>Tax Consulting</p>
+              <p>Investment Consulting</p>
               <p>Investment Analysis</p>
             </div>
           </div>

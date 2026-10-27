@@ -7,7 +7,7 @@ import { getSiteData } from "@/lib/siteData";
 const iconMap: Record<string, typeof Briefcase> = {
   "Software Development": Briefcase,
   "Cloud Deployment": ShieldCheck,
-  "Tax Consulting": Calculator,
+  "Investment Consulting": Calculator,
   "Technology Strategy": BarChart3,
 };
 

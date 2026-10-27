@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { isInsightsStorageConfigured, saveInsights } from "@/lib/insightsData";
 import { getSiteData, saveSiteData } from "@/lib/siteData";
 
 export async function POST(request: NextRequest) {
@@ -13,6 +14,13 @@ export async function POST(request: NextRequest) {
 
   if (typeof body.section !== "string") {
     return NextResponse.json({ error: "Missing section name." }, { status: 400 });
+  }
+
+  if (body.section === "insights" && process.env.VERCEL && !isInsightsStorageConfigured()) {
+    return NextResponse.json(
+      { error: "Connect a Vercel Blob store to this project before saving insights." },
+      { status: 503 }
+    );
   }
 
   const siteData = getSiteData();
@@ -107,8 +115,13 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    saveSiteData(siteData);
-  } catch {
+    if (body.section === "insights") {
+      await saveInsights(siteData.insights);
+    } else {
+      saveSiteData(siteData);
+    }
+  } catch (error) {
+    console.error("Unable to persist admin content:", error);
     return NextResponse.json({ error: "Unable to save site data." }, { status: 500 });
   }
 

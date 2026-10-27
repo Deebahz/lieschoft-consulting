@@ -4,11 +4,13 @@ import InsightsEditor from "@/components/admin/InsightsEditor";
 import LeadsTable from "@/components/admin/LeadsTable";
 import OpenPositionsEditor from "@/components/admin/OpenPositionsEditor";
 import { getContactLeads } from "@/lib/leadData";
+import { getInsights } from "@/lib/insightsData";
 import { getSiteData } from "@/lib/siteData";
 
-export default function AdminPage() {
+export default async function AdminPage() {
   const siteData = getSiteData();
   const leads = getContactLeads();
+  const insights = await getInsights();
 
   return (
     <main className="bg-slate-50 py-24 min-h-screen">
@@ -28,7 +30,7 @@ export default function AdminPage() {
             <div className="space-y-10">
               <OpenPositionsEditor positions={siteData.openPositions} />
               <CaseStudiesEditor caseStudies={siteData.caseStudies} />
-              <InsightsEditor insights={siteData.insights} />
+              <InsightsEditor insights={insights} />
             </div>
 
             <LeadsTable leads={leads} />

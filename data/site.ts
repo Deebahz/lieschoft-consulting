@@ -122,7 +122,7 @@ export const defaultSiteData: SiteData = {
     title: "Empowering businesses with smarter financial strategy and planning.",
     highlight: "smart financial strategy",
     description:
-      "Lieschoft Consulting partners with organizations to deliver advisory, audit, tax, investment, and technology consulting solutions that drive sustainable performance.",
+      "Lieschoft Consulting partners with organizations to deliver advisory, audit, Investment, investment, and technology consulting solutions that drive sustainable performance.",
     primaryCta: {
       label: "Book Consultation",
       href: "/contact",
@@ -184,9 +184,9 @@ export const defaultSiteData: SiteData = {
         "Governance, compliance, and assurance services for dependable reporting.",
     },
     {
-      title: "Tax Consulting",
+      title: "Investment Consulting",
       description:
-        "Tax structure optimization, planning, and compliance for complex businesses.",
+        "Investment structure optimization, planning, and compliance for complex businesses.",
     },
     {
       title: "Technology Strategy",
@@ -325,7 +325,7 @@ export const defaultSiteData: SiteData = {
     servicesLinks: [
       { label: "Financial Advisory", href: "/services" },
       { label: "Audit & Assurance", href: "/services" },
-      { label: "Tax Consulting", href: "/services" },
+      { label: "Investment Consulting", href: "/services" },
       { label: "Technology Strategy", href: "/services" },
     ],
   },

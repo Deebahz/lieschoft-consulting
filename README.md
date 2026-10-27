@@ -71,6 +71,12 @@ npm run dev
 ```
 
 Without these values, accessing `/admin` will return `Admin credentials are not configured.`
+
+### Insights storage
+
+Insights use Vercel Blob in production so admin changes persist across deployments and function instances. In the Vercel dashboard, create a private Blob store and connect it to this project for the Production and Preview environments. The connection provides the credentials the app needs. Redeploy after connecting the store.
+
+Local development uses `data/site.json` when no Blob credentials are configured.
 ## 📁 Project Structure
 
 - `app/` — main application routes and pages

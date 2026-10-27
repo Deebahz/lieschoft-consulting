@@ -3,7 +3,7 @@
     "badge": "Trusted Financial & Strategy Advisors",
     "title": "Empowering businesses with smarter financial strategy and planning.",
     "highlight": "financial strategy",
-    "description": "Lieschoft Consulting partners with organizations to deliver advisory, audit, tax, investment, and technology consulting solutions that drive sustainable performance.",
+    "description": "Lieschoft Consulting partners with organizations to deliver advisory,  investment, and technology consulting solutions that drive sustainable performance.",
     "primaryCta": {
       "label": "Book Consultation",
       "href": "/contact"
@@ -57,8 +57,8 @@
       "description": "Governance, compliance, and assurance services for dependable reporting."
     },
     {
-      "title": "Tax Consulting",
-      "description": "Tax structure optimization, planning, and compliance for complex businesses."
+      "title": "Investment Consulting",
+      "description": "Investment structure optimization, planning, and compliance for complex businesses."
     },
     {
       "title": "Technology Strategy",
@@ -93,16 +93,16 @@
       ]
     },
     {
-      "title": "Tax Strategy Advisor",
+      "title": "Investment Strategy Advisor",
       "responsibilities": [
-        "Support tax planning and structuring for business transactions.",
-        "Prepare tax commentary for clients and leadership teams.",
-        "Work with finance teams to optimize tax outcomes and compliance."
+        "Support Investment planning and structuring for business transactions.",
+        "Prepare Investment commentary for clients and leadership teams.",
+        "Work with finance teams to optimize Investment outcomes and compliance."
       ],
       "requirements": [
-        "Tax advisory experience in a professional services or corporate environment.",
+        "Investment advisory experience in a professional services or corporate environment.",
         "Excellent written and verbal communication.",
-        "Ability to translate tax strategy into practical business guidance."
+        "Ability to translate Investment strategy into practical business guidance."
       ]
     },
     {
@@ -236,7 +236,7 @@
     "servicesLinks": [
       { "label": "Financial Advisory", "href": "/services" },
       { "label": "Audit & Assurance", "href": "/services" },
-      { "label": "Tax Consulting", "href": "/services" },
+      { "label": "Investment Consulting", "href": "/services" },
       { "label": "Technology Strategy", "href": "/services" }
     ]
   },
