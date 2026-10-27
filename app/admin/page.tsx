@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import CaseStudiesEditor from "@/components/admin/CaseStudiesEditor";
+import InsightsEditor from "@/components/admin/InsightsEditor";
 import LeadsTable from "@/components/admin/LeadsTable";
 import OpenPositionsEditor from "@/components/admin/OpenPositionsEditor";
 import { getContactLeads } from "@/lib/leadData";
@@ -27,6 +28,7 @@ export default function AdminPage() {
             <div className="space-y-10">
               <OpenPositionsEditor positions={siteData.openPositions} />
               <CaseStudiesEditor caseStudies={siteData.caseStudies} />
+              <InsightsEditor insights={siteData.insights} />
             </div>
 
             <LeadsTable leads={leads} />

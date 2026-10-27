@@ -1,23 +1,11 @@
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-
-const insights = [
-  {
-    title: "How to align finance and operations for faster growth",
-    excerpt: "Best practices for creating transparent metrics, streamlined planning, and stronger execution."
-  },
-  {
-    title: "Preparing your business for strategic investment",
-    excerpt: "A framework for building credibility with investors through controls, reporting, and strategy."
-  },
-  {
-    title: "Modernizing legacy reporting with data-driven insights",
-    excerpt: "A practical guide to moving from manual spreadsheets to actionable dashboards."
-  },
-];
+import { getSiteData } from "@/lib/siteData";
 
 export default function Insights() {
+  const { insights } = getSiteData();
+
   return (
     <section className="py-24">
       <Container>

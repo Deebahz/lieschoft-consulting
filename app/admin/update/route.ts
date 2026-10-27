@@ -71,6 +71,29 @@ export async function POST(request: NextRequest) {
       slug: string;
       content: string;
     }>;
+  } else if (body.section === "insights") {
+    if (!Array.isArray(body.value)) {
+      return NextResponse.json({ error: "insights must be an array." }, { status: 400 });
+    }
+
+    const insights = body.value;
+    for (const item of insights) {
+      if (
+        typeof item !== "object" ||
+        item === null ||
+        typeof (item as any).title !== "string" ||
+        typeof (item as any).excerpt !== "string" ||
+        !(item as any).title.trim() ||
+        !(item as any).excerpt.trim()
+      ) {
+        return NextResponse.json({ error: "Each insight must include a title and excerpt." }, { status: 400 });
+      }
+    }
+
+    siteData.insights = insights.map((item) => ({
+      title: (item as any).title.trim(),
+      excerpt: (item as any).excerpt.trim(),
+    }));
   } else {
     return NextResponse.json({ error: "Unsupported section." }, { status: 400 });
   }
