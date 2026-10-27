@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getSiteData, saveSiteData } from "@/lib/siteData";
 
 export async function POST(request: NextRequest) {
@@ -76,24 +77,31 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "insights must be an array." }, { status: 400 });
     }
 
-    const insights = body.value;
-    for (const item of insights) {
+    if (body.value.length > 100) {
+      return NextResponse.json({ error: "You can save up to 100 insights." }, { status: 400 });
+    }
+
+    const insights = [];
+    for (const item of body.value) {
       if (
         typeof item !== "object" ||
         item === null ||
-        typeof (item as any).title !== "string" ||
-        typeof (item as any).excerpt !== "string" ||
-        !(item as any).title.trim() ||
-        !(item as any).excerpt.trim()
+        typeof (item as { title?: unknown }).title !== "string" ||
+        typeof (item as { excerpt?: unknown }).excerpt !== "string"
       ) {
         return NextResponse.json({ error: "Each insight must include a title and excerpt." }, { status: 400 });
       }
+
+      const title = (item as { title: string }).title.trim();
+      const excerpt = (item as { excerpt: string }).excerpt.trim();
+      if (!title || !excerpt || title.length > 160 || excerpt.length > 1000) {
+        return NextResponse.json({ error: "Insight titles must be 1-160 characters and excerpts 1-1000 characters." }, { status: 400 });
+      }
+
+      insights.push({ title, excerpt });
     }
 
-    siteData.insights = insights.map((item) => ({
-      title: (item as any).title.trim(),
-      excerpt: (item as any).excerpt.trim(),
-    }));
+    siteData.insights = insights;
   } else {
     return NextResponse.json({ error: "Unsupported section." }, { status: 400 });
   }
@@ -102,6 +110,11 @@ export async function POST(request: NextRequest) {
     saveSiteData(siteData);
   } catch {
     return NextResponse.json({ error: "Unable to save site data." }, { status: 500 });
+  }
+
+  if (body.section === "insights") {
+    revalidatePath("/");
+    revalidatePath("/insights");
   }
 
   return NextResponse.json({ message: "Section updated successfully." });

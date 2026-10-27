@@ -97,6 +97,7 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
 
             <input
               required
+              maxLength={160}
               value={item.title}
               onChange={(event) => updateItem(index, "title", event.target.value)}
               placeholder="Insight title"
@@ -105,6 +106,7 @@ export default function InsightsEditor({ insights }: InsightsEditorProps) {
 
             <textarea
               required
+              maxLength={1000}
               value={item.excerpt}
               onChange={(event) => updateItem(index, "excerpt", event.target.value)}
               placeholder="Short excerpt"
