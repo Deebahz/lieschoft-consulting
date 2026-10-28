@@ -15,9 +15,9 @@ export default function Hero() {
               {hero.badge}
             </span>
 
-            <h1 className="mt-8 text-5xl font-bold leading-tight text-white lg:text-7xl">
+            <h1 className="mt-8 text-5xl font-bold leading-[1.04] tracking-[-0.05em] text-slate-100 drop-shadow-[0_12px_24px_rgba(15,23,42,0.9)] lg:text-7xl">
               {beforeHighlight}
-              <span className="text-violet-200">{hero.highlight}</span>
+              <span className="text-violet-300">{hero.highlight}</span>
               {afterHighlight}
             </h1>
 
