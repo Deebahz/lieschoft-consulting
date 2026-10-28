@@ -1,7 +1,7 @@
 ﻿import fs from "fs";
 import path from "path";
 import { defaultSiteData } from "@/data/site";
-import { getMongoDb, isMongoConfigured } from "@/lib/mongo";
+import { getMongoDb, isMongoConfigured, type MongoDataDocument } from "@/lib/mongo";
 
 export interface HeroData {
   badge: string;
@@ -129,7 +129,7 @@ export async function getSiteData(): Promise<SiteData> {
   if (isMongoConfigured()) {
     const db = await getMongoDb();
     if (db) {
-      const document = await db.collection("site_config").findOne({ _id: "site" });
+      const document = await db.collection<MongoDataDocument>("site_config").findOne({ _id: "site" });
       if (document && document.data && typeof document.data === "object") {
         return document.data as SiteData;
       }
@@ -153,7 +153,7 @@ export async function saveSiteData(data: SiteData) {
   if (isMongoConfigured()) {
     const db = await getMongoDb();
     if (db) {
-      await db.collection("site_config").updateOne(
+      await db.collection<MongoDataDocument>("site_config").updateOne(
         { _id: "site" },
         { $set: { data, updatedAt: new Date() } },
         { upsert: true }

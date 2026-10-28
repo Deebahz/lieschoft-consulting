@@ -1,6 +1,6 @@
 import { get, put } from "@vercel/blob";
 import { connection } from "next/server";
-import { getMongoDb, isMongoConfigured } from "@/lib/mongo";
+import { getMongoDb, isMongoConfigured, type MongoDataDocument } from "@/lib/mongo";
 import { getSiteData, saveSiteData, type InsightData } from "@/lib/siteData";
 
 const insightsPath = "site/insights.json";
@@ -68,7 +68,7 @@ export async function getInsights(): Promise<InsightData[]> {
   if (isMongoConfigured()) {
     const db = await getMongoDb();
     if (db) {
-      const document = await db.collection("site_insights").findOne({ _id: "insights" });
+      const document = await db.collection<MongoDataDocument>("site_insights").findOne({ _id: "insights" });
       if (document && Array.isArray(document.data)) {
         const insights = normalizeInsights(document.data);
         if (insights) {
@@ -99,7 +99,7 @@ export async function saveInsights(insights: InsightData[]) {
   if (isMongoConfigured()) {
     const db = await getMongoDb();
     if (db) {
-      await db.collection("site_insights").updateOne(
+      await db.collection<MongoDataDocument>("site_insights").updateOne(
         { _id: "insights" },
         { $set: { data: insights, updatedAt: new Date() } },
         { upsert: true }
