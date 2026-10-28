@@ -1,8 +1,8 @@
 import Container from "@/components/ui/Container";
 import { getSiteData } from "@/lib/siteData";
 
-export default function TrustedBy() {
-  const { trustedBy } = getSiteData();
+export default async function TrustedBy() {
+  const { trustedBy } = await getSiteData();
 
   return (
     <section className="border-t border-white/10 bg-slate-950/40 py-16 backdrop-blur-sm">

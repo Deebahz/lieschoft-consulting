@@ -10,8 +10,8 @@ const iconMap: Record<string, typeof Briefcase> = {
   "Financial Services": BarChart3,
 };
 
-export default function Industries() {
-  const { industries } = getSiteData();
+export default async function Industries() {
+  const { industries } = await getSiteData();
 
   return (
     <section className="bg-slate-50 py-24">

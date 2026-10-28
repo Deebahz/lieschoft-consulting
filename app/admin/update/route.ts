@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { isMongoConfigured } from "@/lib/mongo";
 import { isInsightsStorageConfigured, saveInsights } from "@/lib/insightsData";
 import { getSiteData, saveSiteData, type InsightData } from "@/lib/siteData";
 
@@ -16,14 +17,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Missing section name." }, { status: 400 });
   }
 
-  if (body.section === "insights" && process.env.VERCEL && !isInsightsStorageConfigured()) {
+  if (
+    body.section === "insights" &&
+    process.env.VERCEL &&
+    !isMongoConfigured() &&
+    !isInsightsStorageConfigured()
+  ) {
     return NextResponse.json(
-      { error: "Connect a Vercel Blob store to this project before saving insights." },
+      { error: "Connect a MongoDB URI or Vercel Blob store to this project before saving insights." },
       { status: 503 }
     );
   }
 
-  const siteData = getSiteData();
+  const siteData = await getSiteData();
 
   if (body.section === "openPositions") {
     if (!Array.isArray(body.value)) {
@@ -104,7 +110,7 @@ export async function POST(request: NextRequest) {
     if (body.section === "insights") {
       await saveInsights(siteData.insights);
     } else {
-      saveSiteData(siteData);
+      await saveSiteData(siteData);
     }
   } catch (error) {
     console.error("Unable to persist admin content:", error);

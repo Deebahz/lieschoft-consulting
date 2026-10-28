@@ -1,5 +1,6 @@
 import { get, put } from "@vercel/blob";
 import { connection } from "next/server";
+import { getMongoDb, isMongoConfigured } from "@/lib/mongo";
 import { getSiteData, saveSiteData, type InsightData } from "@/lib/siteData";
 
 const insightsPath = "site/insights.json";
@@ -64,13 +65,26 @@ function normalizeInsights(value: unknown): InsightData[] | null {
 export async function getInsights(): Promise<InsightData[]> {
   await connection();
 
+  if (isMongoConfigured()) {
+    const db = await getMongoDb();
+    if (db) {
+      const document = await db.collection("site_insights").findOne({ _id: "insights" });
+      if (document && Array.isArray(document.data)) {
+        const insights = normalizeInsights(document.data);
+        if (insights) {
+          return insights;
+        }
+      }
+    }
+  }
+
   if (!isInsightsStorageConfigured()) {
-    return normalizeInsights(getSiteData().insights) ?? [];
+    return normalizeInsights((await getSiteData()).insights) ?? [];
   }
 
   const blob = await get(insightsPath, { access: "private", useCache: false });
   if (!blob || blob.statusCode !== 200 || !blob.stream) {
-    return normalizeInsights(getSiteData().insights) ?? [];
+    return normalizeInsights((await getSiteData()).insights) ?? [];
   }
 
   const insights = normalizeInsights(await new Response(blob.stream).json());
@@ -82,6 +96,18 @@ export async function getInsights(): Promise<InsightData[]> {
 }
 
 export async function saveInsights(insights: InsightData[]) {
+  if (isMongoConfigured()) {
+    const db = await getMongoDb();
+    if (db) {
+      await db.collection("site_insights").updateOne(
+        { _id: "insights" },
+        { $set: { data: insights, updatedAt: new Date() } },
+        { upsert: true }
+      );
+      return;
+    }
+  }
+
   if (isInsightsStorageConfigured()) {
     await put(insightsPath, JSON.stringify(insights), {
       access: "private",
@@ -94,10 +120,10 @@ export async function saveInsights(insights: InsightData[]) {
   }
 
   if (process.env.VERCEL) {
-    throw new Error("Connect a Vercel Blob store to persist insights in production.");
+    throw new Error("Connect a MongoDB URI or Vercel Blob store to persist insights in production.");
   }
 
-  const siteData = getSiteData();
+  const siteData = await getSiteData();
   siteData.insights = insights;
-  saveSiteData(siteData);
+  await saveSiteData(siteData);
 }

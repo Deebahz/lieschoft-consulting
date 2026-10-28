@@ -1,5 +1,7 @@
 ﻿import fs from "fs";
 import path from "path";
+import { defaultSiteData } from "@/data/site";
+import { getMongoDb, isMongoConfigured } from "@/lib/mongo";
 
 export interface HeroData {
   badge: string;
@@ -123,12 +125,42 @@ export interface SiteData {
 
 const siteFilePath = path.join(process.cwd(), "data", "site.json");
 
-export function getSiteData(): SiteData {
-  const rawData = fs.readFileSync(siteFilePath, "utf8");
-  const normalizedData = rawData.charCodeAt(0) === 0xfeff ? rawData.slice(1) : rawData;
-  return JSON.parse(normalizedData) as SiteData;
+export async function getSiteData(): Promise<SiteData> {
+  if (isMongoConfigured()) {
+    const db = await getMongoDb();
+    if (db) {
+      const document = await db.collection("site_config").findOne({ _id: "site" });
+      if (document && document.data && typeof document.data === "object") {
+        return document.data as SiteData;
+      }
+    }
+  }
+
+  try {
+    if (!fs.existsSync(siteFilePath)) {
+      return defaultSiteData;
+    }
+
+    const rawData = fs.readFileSync(siteFilePath, "utf8");
+    const normalizedData = rawData.charCodeAt(0) === 0xfeff ? rawData.slice(1) : rawData;
+    return JSON.parse(normalizedData) as SiteData;
+  } catch {
+    return defaultSiteData;
+  }
 }
 
-export function saveSiteData(data: SiteData) {
+export async function saveSiteData(data: SiteData) {
+  if (isMongoConfigured()) {
+    const db = await getMongoDb();
+    if (db) {
+      await db.collection("site_config").updateOne(
+        { _id: "site" },
+        { $set: { data, updatedAt: new Date() } },
+        { upsert: true }
+      );
+      return;
+    }
+  }
+
   fs.writeFileSync(siteFilePath, JSON.stringify(data, null, 2));
 }

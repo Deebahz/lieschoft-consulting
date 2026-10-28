@@ -2,8 +2,8 @@ import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getSiteData } from "@/lib/siteData";
 
-export default function CareersPage() {
-  const { openPositions, contact } = getSiteData();
+export default async function CareersPage() {
+  const { openPositions, contact } = await getSiteData();
 
   return (
     <main>

@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    saveSiteData(parsed);
+    await saveSiteData(parsed);
   } catch (error) {
     return NextResponse.json({ error: "Failed to write site content." }, { status: 500 });
   }

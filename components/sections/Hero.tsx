@@ -1,8 +1,8 @@
 import Container from "../ui/Container";
 import { getSiteData } from "@/lib/siteData";
 
-export default function Hero() {
-  const siteData = getSiteData();
+export default async function Hero() {
+  const siteData = await getSiteData();
   const hero = siteData.hero;
   const [beforeHighlight, afterHighlight] = hero.title.split(hero.highlight);
 

@@ -7,7 +7,7 @@ import { getInsights } from "@/lib/insightsData";
 import { getSiteData } from "@/lib/siteData";
 
 export default async function AdminPage() {
-  const siteData = getSiteData();
+  const siteData = await getSiteData();
   const leads = getContactLeads();
   const insights = await getInsights();
 

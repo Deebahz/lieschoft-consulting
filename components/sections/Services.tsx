@@ -11,8 +11,8 @@ const iconMap: Record<string, typeof Briefcase> = {
   "Technology Strategy": BarChart3,
 };
 
-export default function Services() {
-  const { services } = getSiteData();
+export default async function Services() {
+  const { services } = await getSiteData();
 
   return (
     <section className="bg-slate-50 py-24">

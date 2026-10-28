@@ -33,9 +33,9 @@ export default function Testimonials() {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <Card key={testimonial.name}>
-              <p className="text-lg leading-8 text-slate-700">“{testimonial.quote}”</p>
-              <div className="mt-8 border-t border-slate-200 pt-6 text-sm text-slate-600">
-                <p className="font-semibold text-slate-900">{testimonial.name}</p>
+              <p className="text-lg leading-8 text-slate-200">“{testimonial.quote}”</p>
+              <div className="mt-8 border-t border-white/10 pt-6 text-sm text-slate-300">
+                <p className="font-semibold text-white">{testimonial.name}</p>
                 <p>{testimonial.title}</p>
               </div>
             </Card>
@@ -43,5 +43,5 @@ export default function Testimonials() {
         </div>
       </Container>
     </section>
-    );
+  );
 }

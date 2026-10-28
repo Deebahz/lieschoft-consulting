@@ -10,8 +10,8 @@ const iconMap: Record<string, typeof Users> = {
   Measure: Timer,
 };
 
-export default function Process() {
-  const { process } = getSiteData();
+export default async function Process() {
+  const { process } = await getSiteData();
 
   return (
     <section className="py-24">

@@ -4,7 +4,7 @@ import Logo from "../ui/Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-300">
+    <footer className="border-t border-white/10 bg-slate-950 text-slate-300">
 
       <Container className="py-20">
 
@@ -21,18 +21,18 @@ export default function Footer() {
           <div>
             <h3 className="mb-5 font-semibold text-white">Company</h3>
 
-            <div className="space-y-3">
-              <Link href="/about">About</Link><br />
-              <Link href="/services">Services</Link><br />
-              <Link href="/careers">Careers</Link><br />
-              <Link href="/contact">Contact</Link>
+            <div className="space-y-3 text-slate-300">
+              <Link href="/about" className="block transition hover:text-violet-200">About</Link>
+              <Link href="/services" className="block transition hover:text-violet-200">Services</Link>
+              <Link href="/careers" className="block transition hover:text-violet-200">Careers</Link>
+              <Link href="/contact" className="block transition hover:text-violet-200">Contact</Link>
             </div>
           </div>
 
           <div>
             <h3 className="mb-5 font-semibold text-white">Services</h3>
 
-            <div className="space-y-3">
+            <div className="space-y-3 text-slate-300">
               <p>Software Development</p>
               <p>Cloud Deployment</p>
               <p>Investment Consulting</p>
@@ -43,15 +43,16 @@ export default function Footer() {
           <div>
             <h3 className="mb-5 font-semibold text-white">Contact</h3>
 
-            <p>Nairobi, Kenya</p>
-            <p>ceo@lieschoftconsulting.com</p>
-            <p>+25447039507</p>
-
+            <div className="space-y-3 text-slate-300">
+              <p>Nairobi, Kenya</p>
+              <p>ceo@lieschoftconsulting.com</p>
+              <p>+25447039507</p>
+            </div>
           </div>
 
         </div>
 
-        <div className="mt-16 border-t border-slate-800 pt-8 text-sm text-slate-500">
+        <div className="mt-16 border-t border-white/10 pt-8 text-sm text-slate-500">
           © 2026 Lieschoft Consulting. All Rights Reserved.
         </div>
 

@@ -5,7 +5,7 @@ export default function Newsletter() {
   return (
     <section className="bg-slate-950 py-24 text-white">
       <Container>
-        <div className="mx-auto max-w-4xl rounded-[2rem] bg-slate-900/95 p-12 shadow-xl sm:p-16">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(167,139,250,0.18),_transparent_28%),rgba(15,23,42,0.92)] p-12 shadow-[0_28px_80px_rgba(15,23,42,0.45)] sm:p-16">
           <SectionHeading
             eyebrow="Newsletter"
             title="Stay informed with concise insights for business leaders"
@@ -20,11 +20,11 @@ export default function Newsletter() {
               id="newsletter-email"
               type="email"
               placeholder="Enter your email"
-              className="min-w-0 rounded-3xl border border-slate-700 bg-slate-950/90 px-5 py-4 text-base text-white placeholder:text-slate-500 focus:border-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-500/30"
+              className="min-w-0 rounded-3xl border border-white/10 bg-slate-950/80 px-5 py-4 text-base text-white placeholder:text-slate-400 focus:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-400/30"
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center rounded-3xl bg-stone-700 px-7 py-4 text-base font-semibold text-white transition hover:bg-stone-500"
+              className="inline-flex items-center justify-center rounded-3xl bg-gradient-to-r from-violet-500 to-violet-300 px-7 py-4 text-base font-semibold text-slate-950 transition hover:brightness-110"
             >
               Subscribe
             </button>
@@ -32,6 +32,6 @@ export default function Newsletter() {
         </div>
       </Container>
     </section>
-    );
+  );
 }
 
