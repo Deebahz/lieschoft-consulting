@@ -117,7 +117,7 @@ export const defaultSiteData: SiteData = {
     title: "Empowering businesses with smarter financial strategy and planning.",
     highlight: "smart financial strategy",
     description:
-      "Lieschoft Consulting partners with organizations to deliver advisory, audit, Investment, investment, and technology consulting solutions that drive sustainable performance.",
+      "Lucent Consulting partners with organizations to deliver advisory, audit, Investment, investment, and technology consulting solutions that drive sustainable performance.",
     primaryCta: {
       label: "Book Consultation",
       href: "/contact",
@@ -130,14 +130,14 @@ export const defaultSiteData: SiteData = {
   trustedBy: {
     heading: "Trusted by ambitious teams",
     subtitle:
-      "Our clients rely on Lieschoft Consulting for high-touch advisory services and practical execution support.",
+      "Our clients rely on Lucent Consulting for high-touch advisory services and practical execution support.",
     partners: ["Veridian", "Kestrel", "Aurelia", "Monolith", "Nova"],
   },
   about: {
     eyebrow: "About",
     title: "We help leaders transform complexity into confident decisions",
     description:
-      "Lieschoft Consulting combines deep financial insight, strategic planning, and modern technology to help companies scale with clarity and control.",
+      "Lucent Consulting combines deep financial insight, strategic planning, and modern technology to help companies scale with clarity and control.",
     features: [
       {
         title: "Strategy",
@@ -236,7 +236,7 @@ export const defaultSiteData: SiteData = {
   testimonials: [
     {
       quote:
-        "Lieschoft helped us simplify our financial reporting and build a growth plan that the executive team trusted.",
+        "Lucent helped us simplify our financial reporting and build a growth plan that the executive team trusted.",
       name: "Elizabeth N.",
       title: "CEO, Nova Capital",
     },
@@ -296,7 +296,7 @@ export const defaultSiteData: SiteData = {
     subscribeLabel: "Subscribe",
   },
   contact: {
-    email: "info@lieschoft.com",
+    email: "info@Lucent.com",
     phone: "+254 700 000 000",
     location: "Nairobi, Kenya",
   },
@@ -318,17 +318,17 @@ export const defaultSiteData: SiteData = {
   },
   pages: {
     about: {
-      title: "About Lieschoft Consulting",
+      title: "About Lucent Consulting",
       description:
         "Learn how our advisory team helps clients improve performance, reporting, and strategic execution.",
     },
     careers: {
-      title: "Careers at Lieschoft Consulting",
+      title: "Careers at Lucent Consulting",
       description:
         "Explore open roles at a growing firm built for collaboration, development, and client impact.",
     },
     contact: {
-      title: "Contact Lieschoft Consulting",
+      title: "Contact Lucent Consulting",
       description:
         "Start a conversation about advisory services, financial strategy, or business transformation.",
     },

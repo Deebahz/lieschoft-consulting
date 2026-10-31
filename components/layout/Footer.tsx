@@ -45,7 +45,7 @@ export default function Footer() {
 
             <div className="space-y-3 text-slate-300">
               <p>Nairobi, Kenya</p>
-              <p>ceo@lieschoftconsulting.com</p>
+              <p>ceo@Lucentconsulting.com</p>
               <p>+25447039507</p>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 border-t border-white/10 pt-8 text-sm text-slate-500">
-          © 2026 Lieschoft Consulting. All Rights Reserved.
+          © 2026 Lucent Consulting. All Rights Reserved.
         </div>
 
       </Container>

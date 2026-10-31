@@ -1,4 +1,4 @@
-# Lieschoft Consulting
+# Lucent Consulting
 
 A modern consulting website built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion. This project is designed to showcase a premium consulting brand with a clean, professional interface and a reusable component architecture.
 
@@ -300,4 +300,4 @@ Instagram
 
 ------------------------------------------------------
 
-© 2026 Lieschoft Consulting
+© 2026 Lucent Consulting

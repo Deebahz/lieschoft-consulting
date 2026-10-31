@@ -4,7 +4,7 @@ import Container from "@/components/ui/Container";
 
 const testimonials = [
   {
-    quote: "Lieschoft helped us simplify our financial reporting and build a growth plan that the executive team trusted.",
+    quote: "Lucent helped us simplify our financial reporting and build a growth plan that the executive team trusted.",
     name: "Elizabeth N.",
     title: "CEO, Nova Capital",
   },

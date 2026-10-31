@@ -7,7 +7,7 @@ export interface MongoDataDocument extends Document {
 }
 
 const mongoUri = process.env.MONGODB_URI;
-const mongoDbName = process.env.MONGODB_DB || "lieschoft";
+const mongoDbName = process.env.MONGODB_DB || "Lucent";
 
 let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;

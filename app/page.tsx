@@ -7,22 +7,22 @@ import CTA from "@/components/sections/CTA";
 import Newsletter from "@/components/sections/Newsletter";
 
 export const metadata = {
-  title: "Lieschoft Consulting | Strategic Advisory for Growth-Driven Organizations",
+  title: "Lucent Consulting | Strategic Advisory for Growth-Driven Organizations",
   description:
-    "Lieschoft Consulting improves business performance with strategic advisory, financial planning, operational transformation, and digital enablement.",
+    "Lucent Consulting improves business performance with strategic advisory, financial planning, operational transformation, and digital enablement.",
   openGraph: {
-    title: "Lieschoft Consulting | Strategic Advisory for Growth-Driven Organizations",
+    title: "Lucent Consulting | Strategic Advisory for Growth-Driven Organizations",
     description:
-      "Lieschoft Consulting improves business performance with strategic advisory, financial planning, operational transformation, and digital enablement.",
-    url: "https://lieschoft-consult.com",
+      "Lucent Consulting improves business performance with strategic advisory, financial planning, operational transformation, and digital enablement.",
+    url: "https://Lucent-consult.com",
     images: ["/images/logo-icon.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lieschoft Consulting | Strategic Advisory for Growth-Driven Organizations",
+    title: "Lucent Consulting | Strategic Advisory for Growth-Driven Organizations",
     description:
-      "Lieschoft Consulting improves business performance with strategic advisory, financial planning, operational transformation, and digital enablement.",
+      "Lucent Consulting improves business performance with strategic advisory, financial planning, operational transformation, and digital enablement.",
     images: ["/images/logo-icon.png"],
   },
 };

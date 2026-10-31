@@ -9,7 +9,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="About"
             title="We help businesses make smarter financial and strategic decisions"
-            description="Lieschoft Consulting provides a blend of strategy, finance, operations, and digital advisory to help organizations grow with confidence."
+            description="Lucent Consulting provides a blend of strategy, finance, operations, and digital advisory to help organizations grow with confidence."
           />
 
           <div className="mt-12 grid gap-10 lg:grid-cols-2">
