@@ -114,7 +114,14 @@ export async function POST(request: NextRequest) {
     }
   } catch (error) {
     console.error("Unable to persist admin content:", error);
-    return NextResponse.json({ error: "Unable to save site data." }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: isMongoConfigured()
+          ? "MongoDB is unavailable, so no changes were saved. Check the Atlas cluster hostname, MONGODB_URI, and Network Access settings."
+          : "Content storage is unavailable, so no changes were saved. Check the configured storage and server logs.",
+      },
+      { status: isMongoConfigured() ? 503 : 500 }
+    );
   }
 
   if (body.section === "insights") {
