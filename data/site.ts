@@ -32,6 +32,12 @@ export interface ServiceData {
   description: string;
 }
 
+export interface OpenPosition {
+  title: string;
+  responsibilities: string[];
+  requirements: string[];
+}
+
 export interface IndustryData {
   title: string;
   description: string;
@@ -93,6 +99,7 @@ export interface SiteData {
   trustedBy: TrustedByData;
   about: AboutData;
   services: ServiceData[];
+  openPositions: OpenPosition[];
   industries: IndustryData[];
   process: ProcessStep[];
   testimonials: TestimonialData[];
@@ -189,6 +196,7 @@ export const defaultSiteData: SiteData = {
         "Analytics, systems, and digital transformation guidance for modern teams.",
     },
   ],
+  openPositions: [],
   industries: [
     {
       title: "Real Estate",
