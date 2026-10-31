@@ -66,15 +66,19 @@ export async function getInsights(): Promise<InsightData[]> {
   await connection();
 
   if (isMongoConfigured()) {
-    const db = await getMongoDb();
-    if (db) {
-      const document = await db.collection<MongoDataDocument>("site_insights").findOne({ _id: "insights" });
-      if (document && Array.isArray(document.data)) {
-        const insights = normalizeInsights(document.data);
-        if (insights) {
-          return insights;
+    try {
+      const db = await getMongoDb();
+      if (db) {
+        const document = await db.collection<MongoDataDocument>("site_insights").findOne({ _id: "insights" });
+        if (document && Array.isArray(document.data)) {
+          const insights = normalizeInsights(document.data);
+          if (insights) {
+            return insights;
+          }
         }
       }
+    } catch (error) {
+      console.error("MongoDB insights read failed; using the configured fallback.", error);
     }
   }
 

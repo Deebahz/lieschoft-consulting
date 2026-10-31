@@ -130,12 +130,16 @@ export async function getSiteData(): Promise<SiteData> {
   await connection();
 
   if (isMongoConfigured()) {
-    const db = await getMongoDb();
-    if (db) {
-      const document = await db.collection<MongoDataDocument>("site_config").findOne({ _id: "site" });
-      if (document && document.data && typeof document.data === "object") {
-        return document.data as SiteData;
+    try {
+      const db = await getMongoDb();
+      if (db) {
+        const document = await db.collection<MongoDataDocument>("site_config").findOne({ _id: "site" });
+        if (document && document.data && typeof document.data === "object") {
+          return document.data as SiteData;
+        }
       }
+    } catch (error) {
+      console.error("MongoDB site data read failed; using the local fallback.", error);
     }
   }
 
