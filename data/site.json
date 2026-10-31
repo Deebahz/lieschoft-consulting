@@ -49,20 +49,20 @@
   },
   "services": [
     {
-      "title": "Financial Advisory",
-      "description": "Cashflow planning, investment readiness, and sustainable growth strategies."
+      "title": "Software Development",
+      "description": "Custom software, web applications, and digital products built around your business needs."
     },
     {
-      "title": "Audit & Assurance",
-      "description": "Governance, compliance, and assurance services for dependable reporting."
+      "title": "Cloud Deployment",
+      "description": "Secure cloud architecture, migration, and deployment for reliable, scalable systems."
     },
     {
       "title": "Investment Consulting",
-      "description": "Investment structure optimization, planning, and compliance for complex businesses."
+      "description": "Strategic guidance for evaluating opportunities, structuring capital, and managing investment decisions."
     },
     {
-      "title": "Technology Strategy",
-      "description": "Analytics, systems, and digital transformation guidance for modern teams."
+      "title": "Investment Analysis",
+      "description": "Data-driven assessment of markets, assets, and financial risk to support sound investment choices."
     }
   ],
   "openPositions": [

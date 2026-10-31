@@ -176,24 +176,24 @@ export const defaultSiteData: SiteData = {
   },
   services: [
     {
-      title: "Financial Advisory",
+      title: "Software Development",
       description:
-        "Cashflow planning, investment readiness, and sustainable growth strategies.",
+        "Custom software, web applications, and digital products built around your business needs.",
     },
     {
-      title: "Audit & Assurance",
+      title: "Cloud Deployment",
       description:
-        "Governance, compliance, and assurance services for dependable reporting.",
+        "Secure cloud architecture, migration, and deployment for reliable, scalable systems.",
     },
     {
       title: "Investment Consulting",
       description:
-        "Investment structure optimization, planning, and compliance for complex businesses.",
+        "Strategic guidance for evaluating opportunities, structuring capital, and managing investment decisions.",
     },
     {
-      title: "Technology Strategy",
+      title: "Investment Analysis",
       description:
-        "Analytics, systems, and digital transformation guidance for modern teams.",
+        "Data-driven assessment of markets, assets, and financial risk to support sound investment choices.",
     },
   ],
   openPositions: [],

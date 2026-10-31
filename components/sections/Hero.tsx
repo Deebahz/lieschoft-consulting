@@ -1,4 +1,5 @@
 import Container from "../ui/Container";
+import LiveMarketBoard from "@/components/sections/LiveMarketBoard";
 import { getSiteData } from "@/lib/siteData";
 
 export default async function Hero() {
@@ -35,33 +36,7 @@ export default async function Hero() {
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-8 shadow-[0_30px_70px_rgba(15,23,42,0.6)] backdrop-blur-xl">
-            <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-white">Business Performance Snapshot</h3>
-
-              <div className="grid grid-cols-2 gap-6">
-                <div className="rounded-2xl border border-white/10 bg-slate-900/55 p-6">
-                  <p className="text-3xl font-bold text-violet-200">250+</p>
-                  <p className="mt-2 text-sm text-slate-300">Projects Delivered</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-900/55 p-6">
-                  <p className="text-3xl font-bold text-violet-200">95%</p>
-                  <p className="mt-2 text-sm text-slate-300">Client Satisfaction</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-900/55 p-6">
-                  <p className="text-3xl font-bold text-violet-200">12+</p>
-                  <p className="mt-2 text-sm text-slate-300">Industries Served</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-slate-900/55 p-6">
-                  <p className="text-3xl font-bold text-violet-200">24/7</p>
-                  <p className="mt-2 text-sm text-slate-300">Strategic Support</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <LiveMarketBoard />
         </div>
       </Container>
     </section>

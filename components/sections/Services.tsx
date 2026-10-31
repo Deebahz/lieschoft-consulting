@@ -1,19 +1,18 @@
-import { Briefcase, ShieldCheck, Calculator, BarChart3 } from "lucide-react";
+import { BarChart3, Briefcase, Calculator, Cloud } from "lucide-react";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
-import { getSiteData } from "@/lib/siteData";
+import { defaultSiteData } from "@/data/site";
 
 const iconMap: Record<string, typeof Briefcase> = {
   "Software Development": Briefcase,
-  "Cloud Deployment": ShieldCheck,
+  "Cloud Deployment": Cloud,
   "Investment Consulting": Calculator,
-  "Technology Strategy": BarChart3,
+  "Investment Analysis": BarChart3,
 };
 
-export default async function Services() {
-  const { services } = await getSiteData();
-
+export default function Services() {
+  const { services } = defaultSiteData;
   return (
     <section className="bg-slate-50 py-24">
       <Container>

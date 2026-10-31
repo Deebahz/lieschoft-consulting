@@ -1,27 +1,11 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
-
-const services = [
-  {
-    title: "Software Development",
-    summary: "We offer software development services for all types of softwares",
-  },
-  {
-    title: "Investment Consulting",
-    summary: "Investment planning, structuring, and advisory services for cross-border business.",
-  },
-  {
-    title: "Technology Strategy",
-    summary: "Analytics, systems, and digital transformation advisory for modern teams.",
-  },
-  {
-    title: "Cloud Deployment",
-    summary: "Cloud migration and development for businesses",
-  },
-];
+import { defaultSiteData } from "@/data/site";
 
 export default function ServicesPage() {
+  const { services } = defaultSiteData;
+
   return (
     <main>
       <section className="bg-slate-50 py-24">
@@ -36,7 +20,7 @@ export default function ServicesPage() {
             {services.map((service) => (
               <Card key={service.title}>
                 <h3 className="text-xl font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-4 text-sm leading-6 text-slate-600">{service.summary}</p>
+                <p className="mt-4 text-sm leading-6 text-slate-600">{service.description}</p>
               </Card>
             ))}
           </div>
