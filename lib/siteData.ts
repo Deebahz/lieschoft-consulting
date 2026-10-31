@@ -1,5 +1,6 @@
 ﻿import fs from "fs";
 import path from "path";
+import { connection } from "next/server";
 import { defaultSiteData } from "@/data/site";
 import { getMongoDb, isMongoConfigured, type MongoDataDocument } from "@/lib/mongo";
 
@@ -126,6 +127,8 @@ export interface SiteData {
 const siteFilePath = path.join(process.cwd(), "data", "site.json");
 
 export async function getSiteData(): Promise<SiteData> {
+  await connection();
+
   if (isMongoConfigured()) {
     const db = await getMongoDb();
     if (db) {
